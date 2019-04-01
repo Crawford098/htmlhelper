@@ -1,0 +1,67 @@
+﻿@model HTMLHELP.Models.Formulario
+@{
+    ViewBag.Title = "Datos";
+}
+
+<h2>Proceso</h2>
+
+
+<table class="table table-striped table-dark">
+
+    <tr>
+        <th>@Html.LabelFor(m => m.Cedula)</th>
+        <td>@Model.Cedula</td>
+    </tr>
+
+    <tr>
+        <th>@Html.LabelFor(m => m.Nombre)</th>
+        <td>@Model.Nombre</td>
+    </tr>
+
+    <tr>
+        <th>@Html.LabelFor(m => m.Apellido)</th>
+        <td>@Model.Apellido</td>
+    </tr>
+
+    <tr>
+        <th>@Html.LabelFor(m => m.Edad)</th>
+        <td>@Model.Edad</td>
+    </tr>
+
+    <tr>
+        <th>@Html.LabelFor(m => m.Telefono)</th>
+        <td>@Model.Telefono</td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(m => m.Correo)</th>
+        <td>@Model.Correo</td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(m => m.Genero)</th>
+        <td>@Model.Genero</td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(m => m.EstadoCivil)</th>
+        <td>@Model.EstadoCivil</td>
+    </tr>
+
+    <tr>
+        <th>@Html.Label("Hobbies")</th>
+        <td>
+
+            @if (Model.Hobbys1 == true)
+            {<label>Basketball</label>}
+
+            @if (Model.Hobbys2 == true)
+            {<label>Videos juegos</label>}
+
+            @if (Model.Hobbys3 == true)
+            {<label>Ver series</label>}
+
+            @if(Model.Hobbys4 == true)
+            {
+                <label>ir al Gym</label>
+            }
+        </td>
+    </tr>
+</table>

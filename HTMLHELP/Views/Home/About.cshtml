@@ -1,0 +1,105 @@
+﻿@model HTMLHELP.Models.Formulario
+@{
+
+    ViewBag.Title = "Formlario";
+}
+<h2>@ViewBag.Title.</h2>
+
+
+
+<div >
+    @using (@Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Cedula, htmlAttributes: new { @class = "control-label col-md-1" })
+            @Html.EditorFor(m => m.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Cedula, "", new { @class = "text-danger"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nombre, htmlAttributes: new { @class = "control-label col-md-1"})
+            @Html.EditorFor(m => m.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Apellido, htmlAttributes: new { @class = "control-label col-md-1"})
+            @Html.EditorFor(m => m.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Apellido, "", htmlAttributes: new { @class = "text-danger"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Edad, htmlAttributes: new { @class = "control-label col-md-1" })
+            @Html.EditorFor(m => m.Edad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Edad)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Telefono, htmlAttributes: new { @class = "control-label col-md-1" })
+            @Html.EditorFor(m => m.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Telefono)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Correo, htmlAttributes: new { @class = "control-label col-md-1" })
+            @Html.EditorFor(m => m.Correo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Correo)
+        </div>
+
+
+        //DROPDOWNLIST
+        var listado = new List<SelectListItem>
+                () {
+        new SelectListItem(){ Text = "Hombre",Value = "Hombre"},
+        new SelectListItem(){ Text = "Mujer", Value = "Mujer"} };
+        <br/>
+        <div class="dropdown">
+            @Html.LabelFor(m => m.Genero, htmlAttributes: new { @class = "control-label col-md-1" })
+            <br/>
+
+            @Html.EnumDropDownListFor(m=> m.Genero,"seleccione su Genero", new { htmlAttributes = new { @class = "btn btn-secundary dropdown-toggle" } })
+        </div>
+        <br />
+        //RADIO BUTTON
+        <div>
+            @Html.LabelFor(m => m.EstadoCivil)
+            <br />
+            @Html.Label("Casado")
+            @Html.RadioButtonFor(m => m.EstadoCivil, "Casado")
+            <br />
+            @Html.Label("Soltero")
+            @Html.RadioButtonFor(m => m.EstadoCivil, "Soltero")
+            <br />
+            @Html.Label("Viudo/a")
+            @Html.RadioButtonFor(m => m.EstadoCivil, "Viudo/a")
+            <br />
+            @Html.Label("Union Libre")
+            @Html.RadioButtonFor(m => m.EstadoCivil, "Union Libre")
+            <br />
+            
+            @*//CHECKBOX*@
+
+        </div>
+        <br />
+        <div>
+            @Html.Label("hobbies")
+            <br />
+            @Html.LabelForModel("Basketball")
+            @Html.CheckBoxFor(m => m.Hobbys1)
+            <br />
+            @Html.LabelForModel("Videos juegos")
+            @Html.CheckBoxFor(m => m.Hobbys2)
+            <br />
+            @Html.LabelForModel("Ver series")
+            @Html.CheckBoxFor(m => m.Hobbys3)
+            <br />
+            @Html.LabelForModel("Gym")
+            @Html.CheckBoxFor(m => m.Hobbys4)
+
+        </div>
+
+        <input type="submit" class="btn btn-default" name="submit" value="ENVIAR" />
+
+
+}
+</div>
